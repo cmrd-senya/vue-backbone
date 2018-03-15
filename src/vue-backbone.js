@@ -260,7 +260,7 @@ let vueBackboneMixin = {
 			if (typeof bbopts !== "function") {
 				throw `VueBackbone: 'bb' initialization option must be a function`;
 			}
-			bbopts = bbopts(); // remember, it's a function
+			bbopts = bbopts.call(vm, vm); // remember, it's a function
 			vm._vuebackbone = {};
 
 			Object.keys(bbopts).forEach(key => {
